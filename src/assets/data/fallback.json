@@ -1,0 +1,60 @@
+[
+  {
+    "name": "Luke",
+    "species": ["HUman"],
+    "homeworld": "Earth",
+    "birth_year": "1900",
+    "gender": "Male",
+    "films": [
+      "Cool and very nice title for film 1",
+      "Cool and very nice title for film 2",
+      "Cool and very nice title for film 3"
+    ]
+  },
+  {
+    "name": "Dart Vader",
+    "species": ["Wookie"],
+    "homeworld": "Mars",
+    "birth_year": "1917",
+    "gender": "n/a",
+    "films": [
+      "Cool and very nice title for film 1",
+      "Cool and very nice title for film 2",
+      "Cool and very nice title for film 3"
+    ]
+  },
+  {
+    "name": "Ja Ja Binx",
+    "species": ["Gungan"],
+    "homeworld": "Naboo",
+    "birth_year": "n/d",
+    "gender": "n/d",
+    "films": [
+      "I dont remember starWars Titles"
+    ]
+  },
+  {
+    "name": "Obivan Kenobi",
+    "species": ["Human"],
+    "homeworld": "Nabooo",
+    "birth_year": "1701",
+    "gender": "Male",
+    "films": [
+      "Cool and very nice title for film 1",
+      "Cool and very nice title for film 2",
+      "Cool and very nice title for film 3"
+    ]
+  },
+  {
+    "name": "R2-D2",
+    "species" : ["Droid"],
+    "homeworld" : "Uranus",
+    "birth_year": "1984",
+    "gender": "none",
+    "films": [
+      "Cool and very nice title for film 1",
+      "Cool and very nice title for film 2",
+      "Cool and very nice title for film 3"
+    ]
+  }
+]
