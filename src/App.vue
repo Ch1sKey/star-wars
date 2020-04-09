@@ -67,9 +67,6 @@ export default {
     };
   },
   methods: {
-    abortFetch() {
-      this.abortController.abort();
-    },
     loadCharacters() {
       fetch(this.baseURL + `?search=${this.searchOptions}`, {
         signal: this.abortController.signal,
