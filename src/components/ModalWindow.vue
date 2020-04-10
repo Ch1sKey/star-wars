@@ -116,7 +116,7 @@ export default {
     }
   },
   beforeMount() {
-    let isLink = str => str.match(/https:\/\/swapi\.co\/api/);
+    let isLink = str => str.match(/swapi/gm);
 
     let loadProperty = property => {
       if (Array.isArray(property)) {
