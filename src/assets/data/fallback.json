@@ -1,7 +1,7 @@
 [
   {
     "name": "Luke",
-    "species": ["HUman"],
+    "species": ["Human"],
     "homeworld": "Earth",
     "birth_year": "1900",
     "gender": "Male",
