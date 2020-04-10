@@ -1,7 +1,11 @@
 <template>
   <button class="card">
     <div class="card__data">
-      <div tabindex="-1" :style=" { backgroundColor: color } " class="card__data__avatar">{{ character.name[0] }}</div>
+      <div
+        tabindex="-1"
+        :style=" { backgroundColor: color } "
+        class="card__data__avatar"
+      >{{ character.name[0] }}</div>
       <div class="card__data__name">{{ character.name }}</div>
       <div class="card__data__species" v-if="showSpecies">{{ character.species[0] }}</div>
       <div class="card__data__species__preloader" v-if="!showSpecies">
@@ -23,7 +27,7 @@ export default {
   props: {
     character: {
       name: String,
-      species: String
+      species: [String]
     }
   },
   data: function() {
@@ -32,15 +36,15 @@ export default {
     };
   },
   beforeMount() {
-    let isLink = str => str.match(/https:\/\/swapi\.co\/api/);
+    let isLink = str => str.match(/swapi/gim);
     let loadSpecies = Promise.all(
       this.character.species.map(species => {
-        if(isLink(species)) {
-        return fetch(species, { method: "GET" })
-          .then(stream => stream.json())
-          .then(data => data.name);
+        if (isLink(species)) {
+          return fetch(species, { method: "GET" })
+            .then(stream => stream.json())
+            .then(data => data.name);
         } else {
-          return Promise.resolve(species)
+          return Promise.resolve(species);
         }
       })
     );
@@ -48,6 +52,9 @@ export default {
       .then(species => {
         setTimeout(() => {
           this.character.species = species;
+          if (species.length === 0) {
+            this.character.species = ["Human"];
+          }
           this.showSpecies = true;
         }, 2000); // Искусственная задержка, чтобы продемонстрировать лоадеры
       })

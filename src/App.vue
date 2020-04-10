@@ -4,7 +4,11 @@
       <HeaderBanner />
     </header>
     <main>
-      <div v-if="showError && !errorAlreadyShown" @click="showError = false; errorAlreadyShown = true" class="error">
+      <div
+        v-if="showError && !errorAlreadyShown"
+        @click="showError = false; errorAlreadyShown = true"
+        class="error"
+      >
         <div
           class="error__text"
         >Запрос к API оказался неудачным. Приложение работает в Fallback режиме.</div>
@@ -36,7 +40,7 @@ import LoaderFalcon from "@/components/LoaderFalcon.vue";
 import CharacterCard from "@/components/CharacterCard.vue";
 import ModalWindow from "@/components/ModalWindow.vue";
 
-import fallbackArray from "@/assets/data/fallback.json"
+import fallbackArray from "@/assets/data/fallback.json";
 
 // TODO: Мобилка!
 
@@ -52,7 +56,7 @@ export default {
   },
   data: function() {
     return {
-      baseURL: "https://swapi.co/api/people/",
+      baseURL: "http://swapi.chiskey.ru/api/people/",
       maxCharacters: 0,
       modalCharacter: {},
       characters: [],
@@ -63,7 +67,7 @@ export default {
       searchOptions: "",
       abortController: new AbortController(),
       showError: false,
-      errorAlreadyShown: false,
+      errorAlreadyShown: false
     };
   },
   methods: {
@@ -81,12 +85,17 @@ export default {
           this.page++;
         })
         .catch(error => {
-          if (error.name !== "AbortError") {
+          if (error.name === "AbortError") {
+            return;
+          } else {
             console.error(error);
           }
+
           this.characters.push(...fallbackArray, ...fallbackArray);
-          if(this.searchOptions !== "") {
-            this.characters = this.characters.filter(x => x.name.match(new RegExp(this.searchOptions, 'gmi')) )
+          if (this.searchOptions !== "") {
+            this.characters = this.characters.filter(x =>
+              x.name.match(new RegExp(this.searchOptions, "gmi"))
+            );
           }
           this.charactersLoaded = true;
           this.showSearchBar = true;
