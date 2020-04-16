@@ -116,9 +116,9 @@ export default {
       this.loadCharacters();
     },
     loadMoreCharacters() {
-      if (this.maxCharacters < this.characters.length) return;
+      if (this.maxCharacters <= this.characters.length) return;
       this.charactersLoaded = false;
-      fetch(this.baseURL + `?page=${this.page}`, { method: "GET" })
+      fetch(this.baseURL + `?page=${this.page}?search=${this.searchOptions}`, { method: "GET" })
         .then(stream => stream.json())
         .then(data => data.results)
         .then(chars => {
