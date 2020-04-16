@@ -112,13 +112,13 @@ export default {
       this.charactersLoaded = false;
       this.searchOptions = str;
       // this.maxCharacters = 0;
-      this.page = 0;
+      this.page = 1;
       this.loadCharacters();
     },
     loadMoreCharacters() {
       if (this.maxCharacters <= this.characters.length) return;
       this.charactersLoaded = false;
-      fetch(this.baseURL + `?page=${this.page}?search=${this.searchOptions}`, { method: "GET" })
+      fetch(this.baseURL + `?search=${this.searchOptions}&page=${this.page}`, { method: "GET" })
         .then(stream => stream.json())
         .then(data => data.results)
         .then(chars => {
