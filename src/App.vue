@@ -56,7 +56,7 @@ export default {
   },
   data: function() {
     return {
-      baseURL: "http://swapi.chiskey.ru/api/people/",
+      baseURL: "https://swapi.dev/api/people/",
       maxCharacters: 0,
       modalCharacter: {},
       characters: [],

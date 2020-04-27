@@ -3,7 +3,7 @@
     <div class="footer__copyright">STAR WARS CHARACTER Encyclopedia, 2020</div>
     <div class="footer__copyright footer__copyright_small">
       Powered by
-      <a target="_blank" href="https://swapi.co">swapi.co</a>
+      <a target="_blank" href="https://swapi.dev/">swapi.dev</a>
     </div>
   </div>
 </template>
